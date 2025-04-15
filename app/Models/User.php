@@ -49,12 +49,13 @@ class User extends Authenticatable
     }
 
     protected $table = 'users';
-    // protected $primaryKey = 'id';
-    // public $incrementing = false;
-    // protected $keyType = 'string';
-
     public function getAuthPassword()
     {
         return $this->password;
+    }
+
+    public function mahasiswa()
+    {
+        return $this->hasOne(Mahasiswa::class);
     }
 }

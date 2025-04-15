@@ -14,8 +14,6 @@ class SuratLaporanController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'semester' => 'required|numeric',
-            'alamat' => 'required|string|max:255',
             'keperluan' => 'required|string|max:255',
         ]);
 

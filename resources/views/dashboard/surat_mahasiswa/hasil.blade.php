@@ -29,13 +29,13 @@
             <!-- Nama Lengkap -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2">Nama Lengkap</label>
-                <input type="text" name="nama" value="{{ Auth::user()->name }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
+                <input type="text" name="nama" value="{{ Auth::user()->mahasiswa ->nama }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
             </div>
 
             <!-- NRP -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2">NRP</label>
-                <input type="text" name="nrp" value="" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
+                <input type="text" name="nrp" value="{{ Auth::user()->mahasiswa ->nrp }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
             </div>
 
             <!-- Keperluan Pembuatan -->

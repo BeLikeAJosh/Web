@@ -16,7 +16,6 @@ class SuratPengantarController extends Controller
         $validated = $request->validate([
             'tujukan' => 'required|string|max:255',
             'matkul' => 'required|max:100',
-            'semester' => 'required|numeric',
             'data' => 'required|string|max:255',
             'tujuan' => 'required|string|max:255',
             'topik' => 'required|string|max:255',

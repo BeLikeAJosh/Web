@@ -35,23 +35,19 @@
             <!-- NRP -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2">NRP</label>
-                <input type="text" name="nrp" value="" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
+                <input type="text" name="nrp" value="{{ Auth::user()->mahasiswa->nrp }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
             </div>
 
             <!-- Semester -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2">Semester</label>
-                <select name="semester" class="w-full px-4 py-2 border rounded bg-white">
-                    @for ($i = 1; $i <= 14; $i++)
-                        <option value="{{ $i }}">Semester {{ $i }}</option>
-                        @endfor
-                </select>
+                <input type="text" name="semester" value="{{ Auth::user()->mahasiswa->semester }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
             </div>
 
             <!-- Alamat -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2">Alamat</label>
-                <input type="text" name="alamat" class="w-full px-4 py-2 border rounded" placeholder="Masukkan alamat kamu">
+                <input type="text" name="alamat" value="{{ Auth::user()->mahasiswa->alamat }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
             </div>
 
             <!-- Keperluan -->

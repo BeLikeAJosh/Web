@@ -35,7 +35,7 @@
             <!-- NRP -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2">NRP</label>
-                <input type="text" name="nrp" value="" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
+                <input type="text" name="nrp" value="{{ Auth::user()->mahasiswa ->nrp }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
             </div>
 
             <!-- Tanggal -->

@@ -14,8 +14,6 @@ class SuratKeteranganController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'Nama' => 'required|string|max:255',
-            'NRP' => 'required|int|max:7',
             'tanggal' => 'required|numeric',
         ]);
 

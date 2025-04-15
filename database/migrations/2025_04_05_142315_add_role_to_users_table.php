@@ -6,9 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Tambahkan kolom 'role' ke tabel users.
-     */
     public function up(): void
     {
         if (!Schema::hasColumn('users', 'role')) {
@@ -19,10 +16,6 @@ return new class extends Migration
             });
         }
     }
-
-    /**
-     * Hapus kolom 'role' dari tabel users.
-     */
     public function down(): void
     {
         Schema::table('users', function (Blueprint $table) {

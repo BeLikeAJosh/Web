@@ -41,18 +41,21 @@
             <!-- Semester -->
             <div class="mb-4">
                 <label class="block text-gray-700 font-medium mb-2">Semester</label>
-                <select name="semester" class="w-full px-4 py-2 border rounded bg-white">
-                    @for ($i = 1; $i <= 14; $i++)
-                        <option value="{{ $i }}">Semester {{ $i }}</option>
-                        @endfor
-                </select>
+                <input type="text" name="semester" value="{{ Auth::user()->mahasiswa->semester }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
             </div>
 
-            <!-- Data Mahasiswa -->
+            <!-- Nama -->
             <div class="mb-4">
-                <label class="block text-gray-700 font-medium mb-2">Data Mahasiswa</label>
-                <input type="text" name="alamat" class="w-full px-4 py-2 border rounded" placeholder="Mahasiswa (nama) - 23720xx">
+                <label class="block text-gray-700 font-medium mb-2">Nama Mahasiswa</label>
+                <input type="text" name="alamat" value="{{ Auth::user()->mahasiswa->nama }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
             </div>
+
+            <!-- NRP -->
+            <div class="mb-4">
+                <label class="block text-gray-700 font-medium mb-2">NRP Mahasiswa</label>
+                <input type="text" name="alamat" value="{{ Auth::user()->mahasiswa->nrp }}" readonly class="w-full px-4 py-2 border rounded bg-gray-100">
+            </div>
+
 
             <!-- Tujuan -->
             <div class="mb-6">

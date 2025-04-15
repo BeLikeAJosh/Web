@@ -1,13 +1,18 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\KaprodiController;
+use App\Http\Controllers\KaprodiDashboardController;
 use App\Http\Controllers\SuratAktifController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\DashboardController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,9 +63,8 @@ Route::get('/mahasiswa/dashboard', function () {
 })->name('mahasiswa.dashboard');
 
 // Dashboard Kaprodi
-Route::get('/kaprodi/dashboard', function () {
-    return view('dashboard.kaprodi');
-})->name('kaprodi.dashboard');
+// Route::get('/kaprodi/dashboard', function () {
+Route::get('/kaprodi/dashboard', [DashboardController::class, 'index'])->name('kaprodi.dashboard');
 
 // Dashboard Admin
 Route::get('/admin/dashboard', function () {
@@ -100,4 +104,28 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mahasiswa/surat/laporan', function () {
         return view('dashboard.surat_mahasiswa.hasil');
     })->name('surat.laporan');
+});
+
+// Admin Dashboard
+Route::middleware(['auth'])->get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+// rute ke mahasiswa admin dashboard
+Route::get('/mahasiswa', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+//Tambah Mahasiswa
+Route::get('/admin/mahasiswa/create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+Route::post('/admin/mahasiswa/store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+// Edit Mahasiswa
+Route::get('/admin/mahasiswa/edit', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+Route::put('/admin/mahasiswa/update', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+
+// rute ke kaprodi admin dashboard
+Route::get('/kaprodi', [KaprodiController::class, 'index'])->name('kaprodi.index');
+Route::get('/kaprodi/edit', [KaprodiController::class, 'edit'])->name('kaprodi.edit');
+Route::put('/kaprodi/update', [KaprodiController::class, 'update'])->name('kaprodi.update');
+
+// ~~ KAPRODI DASHBOARD ~~
+//Route::get('/kaprodi/surat', [KaprodiDashboardController::class, 'show'])->name('kaprodi.surat.show');
+Route::patch('/kaprodi/surat', [KaprodiDashboardController::class, 'updateStatus'])->name('kaprodi.surat.updateStatus');
+
+Route::middleware(['auth'])->group(function () {
+    Route::post('/surat-aktif', [SuratAktifController::class, 'store'])->name('surat.aktif.store');
 });
