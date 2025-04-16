@@ -12,9 +12,9 @@
 
 <body class="bg-gray-100">
     <!-- Navbar -->
-    <nav class="bg-cyan-300 p-4 flex justify-between items-center">
+    <nav class="bg-green-300 p-4 flex justify-between items-center">
         <div class="flex items-center space-x-8">
-            <img src="{{ asset('images/surat.png') }}" alt="Logo" class="w-10 h-10">
+            <img src="{{ asset('images/surat.png') }}" alt="Logo" class="w-20 h-10">
             <span class="text-lg font-semibold">Selamat datang, {{ Auth::user()->name }}!</span>
         </div>
         <div class="relative group">
@@ -22,8 +22,7 @@
                 <i class="fas fa-user-circle text-2xl"></i>
                 <span>Profile</span>
             </div>
-            <div class="absolute right-0 mt-2 w-32 bg-white rounded shadow-md hidden group-hover:block z-50">
-                <a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Profile</a>
+            <div class="absolute right-0 mt-2 w-32 bg-white rounded shadow-md hidden group-hover:block z-100">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">Logout</button>

@@ -23,7 +23,7 @@
     <!-- Navbar -->
     <nav class="bg-black-300 p-4 flex justify-between items-center">
         <div class="flex items-center space-x-8">
-            <img src="{{ asset('images/surat.png') }}" alt="Logo" class="w-10 h-10">
+            <img src="{{ asset('images/surat.png') }}" alt="Logo" class="w-20 h-10">
             <span class="text-lg font-semibold">Selamat datang, {{ Auth::user()->name }}!</span>
         </div>
         <!-- Profile Dropdown -->
